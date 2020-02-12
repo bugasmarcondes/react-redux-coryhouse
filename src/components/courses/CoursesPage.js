@@ -23,9 +23,14 @@ class CoursesPage extends Component {
         this.setState({ course });
     };
 
+    handleSubmit = event => {
+        event.preventDefault();
+        alert(this.state.course.title);
+    };
+
     render() {
         return (
-            <form>
+            <form onSubmit={this.handleSubmit}>
                 <h2>Courses</h2>
                 <h3>Add Course</h3>
                 {/* 1. não fazer esse tipo de bind, pois toda vez que digitamos, uma nova função é criada no change */}

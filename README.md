@@ -4,7 +4,7 @@ Ao perceber que está exibindo as mesmas informações em múltiplos lugares, pr
     - react context
     - react e redux
 
-Formas de lidar com a administração de estado da aplicação:
+### Formas de lidar com a administração de estado da aplicação:
 
     1. Lift state, onde a ideia é passar os dados via props, entre cada componente. Isso causa o problema de prop drilling e somente é recomendado para small e mid-size apps.
     2. React context, criamos o UserContext.Provider no topo da pirâmide de componentes, e importamos o UserContext.Consumer em qualquer componente abaixo do Provider. É uma forma elegante de tratar os dados e padrão do próprio react, mas exige que os componentes possuam uma relação na pirâmide.
@@ -13,28 +13,37 @@ Formas de lidar com a administração de estado da aplicação:
         - quando possuímos muitas ações a serem disparadas (crud)
         - utilização dos mesmos dados em diversos pontos
 
-Conceitos do Redux:
+### Conceitos do Redux:
 
     - One immutable store, a única forma de mudar o estado é submetendo uma ação, que em si utiliza pure functions, chamadas reducers.
     - Unidirectinoal data flow
     - Reducers, recebem um estado e uma ação, e retornam um novo estado
-    - Containers, componentes react, contém lógica e passam informações via props para os dumb components
-    - Immutability, os dados não podem ser alterados por qualquer parte da aplicação
+    - Containers, contém lógica (estado) e passam informações via props para os Presentational components
+    - Immutability, os dados não podem ser alterados diretamente, ou seja, para alterar o estado de um objeto, devemos clonar, alterar e retornar um novo objeto (clareza, quem alterou o estado + performance, comparamos o endereço do objeto em memória !== ao invés de cada valor do objeto). Abaixo algumas formas de copiar um objeto:
+        - Object.assign
+        - Spread operator (...)
+        - Array methods like map, filter, reducer
+        - Libraries like Immer, Seamless-Immutable, Immutable, etc
 
-### Fluxo do Flux vs Redux:
+    | **Flux**                                       |
+    | ---------------------------------------------- |
+    | Action                                         |
+    | Dispatcher (singleton)                         |
+    | Store (conecta ao dispatcher via eventEmmiter) |
+    | React                                          |
 
-| **Flux**                                       |
-| ---------------------------------------------- |
-| Action                                         |
-| Dispatcher (singleton)                         |
-| Store (conecta ao dispatcher via eventEmmiter) |
-| React                                          |
+    | **Redux**                                         |
+    | ------------------------------------------------- |
+    | Action (atualiza store via reducers)              |
+    | Store (é atualizada pelos reducers) <==> Reducers |
+    | React                                             |
 
-| **Redux**                                         |
-| ------------------------------------------------- |
-| Action (atualiza store via reducers)              |
-| Store (é atualizada pelos reducers) <==> Reducers |
-| React                                             |
+### Conectando React com Redux
+
+    - Provider, attaches app to store
+    - Connect, creates container components
+        - mapStateToProps (pode expor somente parte da store para o componente) (executa sempre que o componente é renderizado - memoize with reselect)
+        - mapDispatchToProps (expõe ações ao componente)
 
 # instalação e configuração do ambiente
 

@@ -9,9 +9,9 @@ Ao perceber que está exibindo as mesmas informações em múltiplos lugares, pr
     1. Lift state, onde a ideia é passar os dados via props, entre cada componente. Isso causa o problema de prop drilling e somente é recomendado para small e mid-size apps.
     2. React context, criamos o UserContext.Provider no topo da pirâmide de componentes, e importamos o UserContext.Consumer em qualquer componente abaixo do Provider. É uma forma elegante de tratar os dados e padrão do próprio react, mas exige que os componentes possuam uma relação na pirâmide.
     3. Redux, armazena os dados em uma store central. Quando é necessário alterar os dados, os componentes disparam uma ação, então a store é atualizada e informa os componentes sobre a atualização, forçando-os a renderizar novamente. Sua aplicação fica evidente quando precisamos lidar com situações complexas de fluxo de dados:
-        - como atualizar os dados em componentes que não possuem uma relação de pai-filho
-        - quando possuímos muitas ações a serem disparadas (crud)
-        - utilização dos mesmos dados em diversos pontos
+    - como atualizar os dados em componentes que não possuem uma relação de pai-filho
+    - quando possuímos muitas ações a serem disparadas (crud)
+    - utilização dos mesmos dados em diversos pontos
 
 ### Conceitos do Redux:
 
@@ -20,10 +20,10 @@ Ao perceber que está exibindo as mesmas informações em múltiplos lugares, pr
     - Reducers, recebem um estado e uma ação, e retornam um novo estado
     - Containers, contém lógica (estado) e passam informações via props para os Presentational components
     - Immutability, os dados não podem ser alterados diretamente, ou seja, para alterar o estado de um objeto, devemos clonar, alterar e retornar um novo objeto (clareza, quem alterou o estado + performance, comparamos o endereço do objeto em memória !== ao invés de cada valor do objeto). Abaixo algumas formas de copiar um objeto:
-        - Object.assign
-        - Spread operator (...)
-        - Array methods like map, filter, reducer
-        - Libraries like Immer, Seamless-Immutable, Immutable, etc
+    - Object.assign
+    - Spread operator (...)
+    - Array methods like map, filter, reducer
+    - Libraries like Immer, Seamless-Immutable, Immutable, etc
 
     | **Flux**                                       |
     | ---------------------------------------------- |
@@ -42,14 +42,14 @@ Ao perceber que está exibindo as mesmas informações em múltiplos lugares, pr
 
     - Provider, attaches app to store
     - Connect, creates container components
-        - mapStateToProps (pode expor somente parte da store para o componente) (executa sempre que o componente é renderizado - memoize with reselect)
-        - mapDispatchToProps (expõe ações ao componente)
+    - mapStateToProps (pode expor somente parte da store para o componente) (executa sempre que o componente é renderizado - memoize with reselect)
+    - mapDispatchToProps (expõe ações ao componente)
 
 # instalação e configuração do ambiente
 
 ## troubleshoot
 
--   Please note that webpack-dev-server runs in memory by design. If you want a real bundle, build through webpack.
+- Please note that webpack-dev-server runs in memory by design. If you want a real bundle, build through webpack.
 
 ## production dependencies
 
@@ -105,27 +105,28 @@ Ao perceber que está exibindo as mesmas informações em múltiplos lugares, pr
 
 ## vscode
 
--   se JSX estiver quebrando ao salvar, adicionar o código abaixo no settings.json
+- se JSX estiver quebrando ao salvar, adicionar o código abaixo no settings.json
     <pre><code>"files.associations": {
       "*.js": "javascriptreact"
     }</code></pre>
--   para emmet funcionar no jsx, adicionar o seguinte trecho no settings.json
+- para emmet funcionar no jsx, adicionar o seguinte trecho no settings.json
     <pre><code>"emmet.includeLanguages": {
           "javascript": "javascriptreact"
-      }</code></pre>
--   habilitar format on save
+    }</code></pre>
+- habilitar format on save
+- instalação da extensão Redux Dev Tools
 
 ## projeto
 
--   adicionar e configurar .editorconfig ou .prettierrc.json
--   package.json
-    -   copiar/criar arquivo package.json
--   yarn install
--   configurar webpack
-    -   criar arquivo de configuração webpack.config.dev.js
--   configurar babel
-    -   adicionar babel no package.json
--   configurar eslint
-    -   adicionar .eslintrc.json
+- adicionar e configurar .editorconfig ou .prettierrc.json
+- package.json
+    - copiar/criar arquivo package.json
+- yarn install
+- configurar webpack
+    - criar arquivo de configuração webpack.config.dev.js
+- configurar babel
+    - adicionar babel no package.json
+- configurar eslint
+    - adicionar .eslintrc.json
 
 ... criando componentes e rotas

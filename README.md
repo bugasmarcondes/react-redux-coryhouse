@@ -44,6 +44,9 @@ Ao perceber que está exibindo as mesmas informações em múltiplos lugares, pr
     - Connect, creates container components
     - mapStateToProps (pode expor somente parte da store para o componente) (executa sempre que o componente é renderizado - memoize with reselect)
     - mapDispatchToProps (expõe ações ao componente)
+        1. dispatch implícito
+        2. dispatch único por ação
+        3. bindActionCreator, é uma helper function do Redux que evita o trabalho de ter que englobar cada actionCreators em uma chamada ao dispatch
 
 # instalação e configuração do ambiente
 

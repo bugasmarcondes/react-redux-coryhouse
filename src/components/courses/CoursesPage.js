@@ -28,7 +28,7 @@ class CoursesPage extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.dispatch(courseActions.createCourse(this.state.course));
+        this.props.createCourse(this.state.course);
     };
 
     render() {
@@ -56,7 +56,7 @@ class CoursesPage extends Component {
 
 CoursesPage.propTypes = {
     courses: PropTypes.array.isRequired,
-    dispatch: PropTypes.func.isRequired,
+    createCourse: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -65,5 +65,11 @@ function mapStateToProps(state) {
     };
 }
 
+function mapDispatchToProps(dispatch) {
+    return {
+        createCourse: course => dispatch(courseActions.createCourse(course)),
+    };
+}
+
 // ao omitir mapDispatchToProps, é automaticamente passado dispatch via props para o componente
-export default connect(mapStateToProps)(CoursesPage);
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);

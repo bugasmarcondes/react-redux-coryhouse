@@ -47,6 +47,7 @@ Ao perceber que está exibindo as mesmas informações em múltiplos lugares, pr
         1. dispatch implícito
         2. dispatch único por ação
         3. bindActionCreator, é uma helper function do Redux que evita o trabalho de ter que englobar cada actionCreators em uma chamada ao dispatch
+        4. mapDispatchToProps como um objeto
 
 # instalação e configuração do ambiente
 

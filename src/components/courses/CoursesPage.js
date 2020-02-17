@@ -66,6 +66,12 @@ function mapStateToProps(state) {
     };
 }
 
+// 4. mapDispatchToProps como um objeto
+// when declared as an object, each property is automatically bound to dispatch
+// const mapDispatchToProps = {
+//     createCourse: courseActions.createCourse
+// }
+
 function mapDispatchToProps(dispatch) {
     return {
         actions: bindActionCreators(courseActions, dispatch),

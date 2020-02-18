@@ -134,3 +134,27 @@ Ao perceber que está exibindo as mesmas informações em múltiplos lugares, pr
     - adicionar .eslintrc.json
 
 ... criando componentes e rotas
+
+## async in Redux
+
+Existem diversas bibliotecas que permitem lidar com async no Redux, como:
+
+- redux-thunk, retorna funções a partir dos action creators
+    - é muito útil para trazer os seguintes benefícios:
+        - consistência, os componentes podem chamar ações síncronas e assíncronas da mesma forma (consistência de código)
+        - pureza, evita ligar o fonte a side effects
+        - facilidade nos testes, e a pureza facilita nos testes
+    - thunk nos ajuda a evitar side effects nas actions, action creators e componentes. Tudo que é impuro é envolto pela thunk. Mais tarde a thunk será chamada pelo Middleware, o que irá causar o effect, ou seja, o effect roda somente no middleware, fica centralizado.
+- redux-promise, usa promises para operações async
+- redux-observable, usa RxJS observables
+- redux-saga, usa generators
+
+**Thunk**
+- As ações retornam funções ao invés de objetos
+- Difíceis de testar
+- API simples de aprender
+
+**Sagas**
+- Lida com async via generators, que são funções que podem ser pausadas e retomadas futuramente
+- Simples de testar (não precisa mockar nada, código mais limpo)
+- Difícil de entender pois precisa conhecer uma API mais extensa

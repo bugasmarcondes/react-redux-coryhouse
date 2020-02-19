@@ -25,14 +25,14 @@ Ao perceber que está exibindo as mesmas informações em múltiplos lugares, pr
     - Array methods like map, filter, reducer
     - Libraries like Immer, Seamless-Immutable, Immutable, etc
 
-    | **Flux**                                       |
+    | **Flux (flow) **                               |
     | ---------------------------------------------- |
     | Action                                         |
     | Dispatcher (singleton)                         |
     | Store (conecta ao dispatcher via eventEmmiter) |
     | React                                          |
 
-    | **Redux**                                         |
+    | **Redux (flow) **                                 |
     | ------------------------------------------------- |
     | Action (atualiza store via reducers)              |
     | Store (é atualizada pelos reducers) <==> Reducers |
@@ -158,3 +158,12 @@ Existem diversas bibliotecas que permitem lidar com async no Redux, como:
 - Lida com async via generators, que são funções que podem ser pausadas e retomadas futuramente
 - Simples de testar (não precisa mockar nada, código mais limpo)
 - Difícil de entender pois precisa conhecer uma API mais extensa
+
+## aplicando thunk
+
+1. configureStore.js, enhance our store configuration with thunk
+2.a. courseActions.js, adicionamos a ação para carregamento dos cursos
+2.b. actionTypes.js, registramos uma constante para a nova ação
+2.c. courseReducer.js, tratamos a ação criada anteriormente, e retornamos o novo state via reducer
+3. CoursesPage.js, carregamos os cursos ao exibir o componente
+4. CourseList.js, criamos um novo componente (presentational component) para lidar com a apresentação dos cursos

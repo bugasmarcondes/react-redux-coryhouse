@@ -12,6 +12,7 @@ function ManageCoursePage({
     courses,
     authors,
     loadCourses,
+    saveCourse,
     loadAuthors,
     ...props
 }) {
@@ -41,6 +42,11 @@ function ManageCoursePage({
         }));
     }
 
+    function handleSave(event) {
+        event.preventDefault();
+        saveCourse(course);
+    }
+
     return (
         <>
             <CourseForm
@@ -48,6 +54,7 @@ function ManageCoursePage({
                 errors={errors}
                 authors={authors}
                 onChange={handleChange}
+                onSave={handleSave}
             />
         </>
     );
@@ -60,6 +67,7 @@ ManageCoursePage.propTypes = {
     authors: PropTypes.array.isRequired,
     loadCourses: PropTypes.func.isRequired,
     loadAuthors: PropTypes.func.isRequired,
+    saveCourse: PropTypes.func.isRequired,
 };
 
 // 4. REDUX MAAPING FUNCIONS
@@ -80,6 +88,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
     loadCourses: courseActions.loadCourses,
     loadAuthors: authorActions.loadAuthors,
+    saveCourse: courseActions.saveCourse,
 };
 
 // 5. CONNECT OUR COMPONENT TO REDUX

@@ -71,7 +71,7 @@
       "category": "HTML5"
     },
     {
-      "title": "test",
+      "title": "testasdasdasdas",
       "authorId": 1,
       "category": "test cat",
       "createdAt": 1582559468730,
@@ -85,6 +85,14 @@
       "createdAt": 1582560165919,
       "slug": "asdasdas",
       "id": 12
+    },
+    {
+      "title": "Bugas",
+      "authorId": 1,
+      "category": "Bugas Cat",
+      "createdAt": 1582561438707,
+      "slug": "bugas",
+      "id": 13
     }
   ],
   "authors": [

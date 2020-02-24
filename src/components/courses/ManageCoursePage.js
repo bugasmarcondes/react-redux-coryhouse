@@ -25,6 +25,8 @@ function ManageCoursePage({
             loadCourses().catch(error => {
                 alert("Loading courses failed " + error);
             });
+        } else {
+            setCourse({ ...props.course });
         }
 
         if (authors.length === 0) {
@@ -32,7 +34,7 @@ function ManageCoursePage({
                 alert("Loading authors failed " + error);
             });
         }
-    }, []);
+    }, [props.course]);
 
     function handleChange(event) {
         const { name, value } = event.target;
@@ -51,15 +53,13 @@ function ManageCoursePage({
     }
 
     return (
-        <>
-            <CourseForm
-                course={course}
-                errors={errors}
-                authors={authors}
-                onChange={handleChange}
-                onSave={handleSave}
-            />
-        </>
+        <CourseForm
+            course={course}
+            errors={errors}
+            authors={authors}
+            onChange={handleChange}
+            onSave={handleSave}
+        />
     );
 }
 
@@ -74,9 +74,20 @@ ManageCoursePage.propTypes = {
     history: PropTypes.object.isRequired,
 };
 
+export function getCourseBySlug(courses, slug) {
+    return courses.find(course => course.slug === slug) || null;
+}
+
 // 4. REDUX MAAPING FUNCIONS
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
+    const slug = ownProps.match.params.slug;
+    const course =
+        slug && state.courses.length > 0
+            ? getCourseBySlug(state.courses, slug)
+            : newCourse;
+
     return {
+        course,
         courses: state.authors,
         authors: state.authors,
     };

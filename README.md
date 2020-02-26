@@ -167,3 +167,17 @@ Existem diversas bibliotecas que permitem lidar com async no Redux, como:
 2.c. courseReducer.js, tratamos a ação criada anteriormente, e retornamos o novo state via reducer
 3. CoursesPage.js, carregamos os cursos ao exibir o componente
 4. CourseList.js, criamos um novo componente (presentational component) para lidar com a apresentação dos cursos
+
+## testing react
+
+Duas bibliotecas populares que podem ser utilizadas são:
+- Enzyme
+- React Testing Library
+
+**Enzyme**
+- De baixo dos panos, Enzyme utiliza:
+    - React Test Utils
+    - JSDOM (In-Memory DOM)
+    - Cheerio (Fast jQuery style selectors)
+
+**React Testing Library**

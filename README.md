@@ -179,5 +179,9 @@ Duas bibliotecas populares que podem ser utilizadas são:
     - React Test Utils
     - JSDOM (In-Memory DOM)
     - Cheerio (Fast jQuery style selectors)
-
-**React Testing Library**
+- Configuração:
+    1. testSetup.js
+    2. package.json
+- Formas de testar componentes:
+    - shallow, renders a single component, no DOM is created, only the component is created in memory
+    - mount, renders component with children, DOM is created in mmory via JSDOM, child are rendered

@@ -14,9 +14,13 @@ export function createCourseSuccess(course) {
     return { type: types.UPDATE_COURSE_SUCCESS, course };
 }
 
+export function deleteCourseOptmistic(course) {
+    return { type: types.DELETE_COURSE_OPTIMISTIC, course };
+}
+
 export function loadCourses() {
     // our first thunk
-    // redux thunk injecs dispatch automatically
+    // redux thunk injects dispatch automatically
     return function(dispatch) {
         dispatch(beginApiCall());
 
@@ -47,5 +51,12 @@ export function saveCourse(course) {
                 dispatch(apiCallError(error));
                 throw error;
             });
+    };
+}
+
+export function deleteCourse(course) {
+    return function(dispatch) {
+        dispatch(deleteCourseOptmistic(course));
+        return courseApi.deleteCourse(course.id);
     };
 }

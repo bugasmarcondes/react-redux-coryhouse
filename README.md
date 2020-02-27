@@ -185,3 +185,8 @@ Duas bibliotecas populares que podem ser utilizadas são:
 - Formas de testar componentes:
     - shallow, renders a single component, no DOM is created, only the component is created in memory
     - mount, renders component with children, DOM is created in mmory via JSDOM, child are rendered
+- https://airbnb.io/enzyme/
+
+**React Testing Library**
+- There is no shallow rendering, componentes are always mounted, with children e.g.
+- https://testing-library.com/

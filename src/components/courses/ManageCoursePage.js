@@ -10,7 +10,7 @@ import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
 
 // 2. FUNCTION COMPONENT
-function ManageCoursePage({
+export function ManageCoursePage({
     courses,
     authors,
     loadCourses,

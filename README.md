@@ -190,3 +190,11 @@ Duas bibliotecas populares que podem ser utilizadas são:
 **React Testing Library**
 - There is no shallow rendering, componentes are always mounted, with children e.g.
 - https://testing-library.com/
+
+## reduzindo carregamento de JS
+
+- Procurar por React.Lazy, pois ele carrega partes do script desenvolvido, conforme a necessidade
+
+## deploy em produção
+
+- Configurar o web server para direcionar os requests para index.htm, pois dessa forma, o React Router irá assumir e lidar com os requests no client

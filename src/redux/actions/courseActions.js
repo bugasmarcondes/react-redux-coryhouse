@@ -7,11 +7,11 @@ export function loadCourseSuccess(courses) {
 }
 
 export function updateCourseSuccess(course) {
-    return { type: types.CREATE_COURSE_SUCCESS, course };
+    return { type: types.UPDATE_COURSE_SUCCESS, course };
 }
 
 export function createCourseSuccess(course) {
-    return { type: types.UPDATE_COURSE_SUCCESS, course };
+    return { type: types.CREATE_COURSE_SUCCESS, course };
 }
 
 export function deleteCourseOptmistic(course) {

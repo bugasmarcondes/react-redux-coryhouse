@@ -36,11 +36,11 @@ describe("Async Actions", () => {
 });
 
 describe("createCourseSuccess", () => {
-    it("should create a UPDATE_COURSE_SUCCESS action", () => {
+    it("should create a CREATE_COURSE_SUCCESS action", () => {
         //arrange
         const course = courses[0];
         const expectedAction = {
-            type: types.UPDATE_COURSE_SUCCESS,
+            type: types.CREATE_COURSE_SUCCESS,
             course,
         };
 
